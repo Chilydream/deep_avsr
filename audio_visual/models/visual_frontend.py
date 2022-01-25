@@ -62,7 +62,7 @@ class ResNet(nn.Module):
     An 18-layer ResNet architecture.
     """
 
-    def __init__(self):
+    def  __init__(self):
         super(ResNet, self).__init__()
         self.layer1 = ResNetLayer(64, 64, stride=1)
         self.layer2 = ResNetLayer(64, 128, stride=2)
