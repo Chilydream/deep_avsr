@@ -59,7 +59,7 @@ def main():
 
 
     #removing the checkpoints directory if it exists and remaking it
-    if os.path.exists(args["CODE_DIRECTORY"] + "/checkpoints"):
+    if os.path.exists(args["CODE_DIRECTORY"] + "/train_checkpoints"):
         while True:
             ch = input("Continue and remove the 'checkpoints' directory? y/n: ")
             if ch == "y":
@@ -70,9 +70,9 @@ def main():
                 print("Invalid input")
         shutil.rmtree(args["CODE_DIRECTORY"] + "/checkpoints")
 
-    os.mkdir(args["CODE_DIRECTORY"] + "/checkpoints")
-    os.mkdir(args["CODE_DIRECTORY"] + "/checkpoints/models")
-    os.mkdir(args["CODE_DIRECTORY"] + "/checkpoints/plots")
+    os.mkdir(args["CODE_DIRECTORY"] + "/train_checkpoints")
+    os.mkdir(args["CODE_DIRECTORY"] + "/train_checkpoints/models")
+    os.mkdir(args["CODE_DIRECTORY"] + "/train_checkpoints/plots")
 
 
     #loading the pretrained weights
@@ -126,7 +126,7 @@ def main():
         #saving the model weights and loss/metric curves in the checkpoints directory after every few steps
         if ((step%args["SAVE_FREQUENCY"] == 0) or (step == args["NUM_STEPS"]-1)) and (step != 0):
 
-            savePath = args["CODE_DIRECTORY"] + "/checkpoints/models/train-step_{:04d}-wer_{:.3f}.pt".format(step, validationWER)
+            savePath = args["CODE_DIRECTORY"] + "/train_checkpoints/models/train-step_{:04d}-wer_{:.3f}.pt".format(step, validationWER)
             torch.save(model.state_dict(), savePath)
 
             plt.figure()
@@ -136,7 +136,7 @@ def main():
             plt.plot(list(range(1, len(trainingLossCurve)+1)), trainingLossCurve, "blue", label="Train")
             plt.plot(list(range(1, len(validationLossCurve)+1)), validationLossCurve, "red", label="Validation")
             plt.legend()
-            plt.savefig(args["CODE_DIRECTORY"] + "/checkpoints/plots/train-step_{:04d}-loss.png".format(step))
+            plt.savefig(args["CODE_DIRECTORY"] + "/train_checkpoints/plots/train-step_{:04d}-loss.png".format(step))
             plt.close()
 
             plt.figure()
@@ -146,7 +146,7 @@ def main():
             plt.plot(list(range(1, len(trainingWERCurve)+1)), trainingWERCurve, "blue", label="Train")
             plt.plot(list(range(1, len(validationWERCurve)+1)), validationWERCurve, "red", label="Validation")
             plt.legend()
-            plt.savefig(args["CODE_DIRECTORY"] + "/checkpoints/plots/train-step_{:04d}-wer.png".format(step))
+            plt.savefig(args["CODE_DIRECTORY"] + "/train_checkpoints/plots/train-step_{:04d}-wer.png".format(step))
             plt.close()
 
 

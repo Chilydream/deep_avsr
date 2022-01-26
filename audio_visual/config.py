@@ -12,8 +12,8 @@ args = dict()
 args["CODE_DIRECTORY"] = '/home/tliu/fsx/project/deep_avsr/audio_visual'   #absolute path to the code directory
 args["DATA_DIRECTORY"] = '/home/tliu/fsx/dataset/LRS2'   #absolute path to the data directory
 args["DEMO_DIRECTORY"] = '/home/tliu/fsx/project/deep_avsr'   #absolute path to the demo directory
-# args["PRETRAINED_MODEL_FILE"] = "/final/models/pretrained_model.pt"     #relative path to the pretrained model file
-args["PRETRAINED_MODEL_FILE"] = None
+args["PRETRAINED_MODEL_FILE"] = "/final/models/pretrained_model.pt"     #relative path to the pretrained model file
+# args["PRETRAINED_MODEL_FILE"] = None
 args["TRAINED_MODEL_FILE"] = "/final/models/trained_model.pt"   #relative path to the trained model file
 args["TRAINED_LM_FILE"] = '/home/tliu/fsx/project/deep_avsr/pretrain/language_model.pt'  #absolute path to the trained language model file
 args["TRAINED_FRONTEND_FILE"] = '/home/tliu/fsx/project/deep_avsr/pretrain/visual_frontend.pt' #absolute path to the trained visual frontend file
@@ -51,7 +51,7 @@ args["NORMALIZATION_STD"] = 0.1688  #standard deviation value for normalization 
 
 #training
 args["SEED"] = 19220297 #seed for random number generators
-args["BATCH_SIZE"] = 64 #minibatch size
+args["BATCH_SIZE"] = 128 #minibatch size
 args["STEP_SIZE"] = 16384   #number of samples in one step (virtual epoch)
 args["NUM_STEPS"] = 100 #maximum number of steps to train for (early stopping is used)
 args["SAVE_FREQUENCY"] = 10 #saving the model weights and loss/metric plots after every these many steps
