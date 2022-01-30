@@ -21,6 +21,8 @@ def preprocess_sample(file, params):
     videoFile = file + ".mp4"
     roiFile = file + ".png"
     visualFeaturesFile = file + ".npy"
+    if os.path.exists(roiFile) and os.path.exists(visualFeaturesFile):
+        return
 
     roiSize = params["roiSize"]
     normMean = params["normMean"]

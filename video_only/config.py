@@ -9,13 +9,13 @@ args = dict()
 
 
 #project structure
-args["CODE_DIRECTORY"] = None   #absolute path to the code directory
-args["DATA_DIRECTORY"] = None   #absolute path to the data directory
-args["DEMO_DIRECTORY"] = None   #absolute path to the demo directory
+args["CODE_DIRECTORY"] = '/home/tliu/fsx/project/deep_avsr/video_only'   #absolute path to the code directory
+args["DATA_DIRECTORY"] = '/home/tliu/fsx/dataset/LRS2'   #absolute path to the data directory
+args["DEMO_DIRECTORY"] = '/home/tliu/fsx/project/deep_avsr'   #absolute path to the demo directory
 args["PRETRAINED_MODEL_FILE"] = "/final/models/pretrained_model.pt"     #relative path to the pretrained model file
 args["TRAINED_MODEL_FILE"] = "/final/models/trained_model.pt"   #relative path to the trained model file
-args["TRAINED_LM_FILE"] = None  #absolute path to the trained language model file
-args["TRAINED_FRONTEND_FILE"] = None #absolute path to the trained visual frontend file
+args["TRAINED_LM_FILE"] = '/home/tliu/fsx/project/deep_avsr/pretrain/language_model.pt'  #absolute path to the trained language model file
+args["TRAINED_FRONTEND_FILE"] = '/home/tliu/fsx/project/deep_avsr/pretrain/visual_frontend.pt' #absolute path to the trained visual frontend file
 
 
 #data
